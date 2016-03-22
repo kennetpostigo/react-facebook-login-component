@@ -1,2 +1,55 @@
-# react-facebook-login
-React Facebook Component to log users in through facebook
+# react-facebook-login-component
+> React Facebook Component to log users in through facebook
+
+[![version](https://img.shields.io/npm/v/react-facebook-login-component.svg?style=flat-square)](http://npm.im/react-google-login-component)
+[![MIT License](https://img.shields.io/npm/l/react-facebook-login-component.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+
+react-facebook-login-component is a module that easily lets you drop it into
+your existing project and get the benefits of Facebook Login. It's a plug and
+play component that'll fit in your workflow if your using standalone React or
+React with Redux.
+
+## Usage
+```bash
+npm install --save react-facebook-login-component
+```
+
+```js
+import React from 'react';
+import FacebookLogin from 'react-facebook-login-component';
+
+class Login extends React.Component{
+
+  constructor (props, context) {
+    super(props, context);
+  }
+
+  responseFacebook (response) {
+    console.log(response);
+  }
+
+  responseGoogle (googleUser) {
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log({accessToken: id_token});
+  }
+
+  render () {
+    return (
+      <div>
+        <FacebookLogin socialId="1520371451600515"
+                       language="en_US"
+                       scope="public_profile,email"
+                       responseHandler={this.responseFacebook}
+                       xfbml={true}
+                       version="v2.5"
+                       class="facebook-login"
+                       buttonText="Login With Facebook"/>
+      </div>
+    );
+  }
+
+}
+
+export default Login;
+
+```
