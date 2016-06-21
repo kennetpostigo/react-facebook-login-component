@@ -1,12 +1,13 @@
 {
   "name": "react-facebook-login-component",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "React Component that lets you instantly login through facebook platform",
-  "main": "src/index.js",
+  "main": "dist/react-facebook-login-component",
   "scripts": {
     "clear": "rm -rf dist && mkdir dist",
     "build:develop": "cross-env NODE_ENV=development webpack src/index.js dist/react-facebook-login-component.js",
-    "build:production": "cross-env NODE_ENV=production webpack src/index.js dist/react-facebook-login-component.min.js"
+    "build:production": "cross-env NODE_ENV=production webpack src/index.js dist/react-facebook-login-component.min.js",
+    "build:publish": "npm run build:develop && npm run build:production"
   },
   "repository": {
     "type": "git",
@@ -26,8 +27,8 @@
     "url": "https://github.com/kennetpostigo/react-facebook-login-component/issues"
   },
   "homepage": "https://github.com/kennetpostigo/react-facebook-login-component#readme",
-  "dependencies": {
-    "react": "0.14.7"
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
     "babel-cli": "6.4.0",
