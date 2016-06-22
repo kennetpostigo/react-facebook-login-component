@@ -1,3 +1,3 @@
-import FacebookLogin from './FacebookLogin';
+import FacebookLogin from './FacebookLogin.js';
 
 export { FacebookLogin };

@@ -20,7 +20,7 @@ npm install --save react-facebook-login-component
 
 ```js
 import React from 'react';
-import FacebookLogin from 'react-facebook-login-component';
+import { FacebookLogin } from 'react-facebook-login-component';
 
 class Login extends React.Component{
 
