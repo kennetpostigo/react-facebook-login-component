@@ -41,6 +41,7 @@ class Login extends React.Component{
                        scope="public_profile,email"
                        responseHandler={this.responseFacebook}
                        xfbml={true}
+                       fields="id,email,name"
                        version="v2.5"
                        class="facebook-login"
                        buttonText="Login With Facebook"/>
