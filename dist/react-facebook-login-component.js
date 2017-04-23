@@ -99,7 +99,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function FacebookLogin(props) {
 	    _classCallCheck(this, FacebookLogin);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(FacebookLogin).call(this, props));
+	    return _possibleConstructorReturn(this, (FacebookLogin.__proto__ || Object.getPrototypeOf(FacebookLogin)).call(this, props));
 	  }
 
 	  _createClass(FacebookLogin, [{
@@ -163,6 +163,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _react2.default.createElement(
 	          'button',
 	          { className: this.props.class, onClick: this.clickHandler.bind(this) },
+	          this.props.children,
 	          this.props.buttonText
 	        )
 	      );

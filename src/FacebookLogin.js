@@ -51,6 +51,7 @@ export default class FacebookLogin extends React.Component {
     return (
       <div>
         <button className={this.props.class} onClick={this.clickHandler.bind(this)}>
+          {this.props.children}
           {this.props.buttonText}
         </button>
       </div>
