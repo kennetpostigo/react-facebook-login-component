@@ -8,6 +8,7 @@ class App extends Component {
         <FacebookLogin socialId="yourAppID"
                        language="en_US"
                        scope="public_profile,email"
+                       fields="id,name,email"
                        responseHandler={this.responseFacebook}
                        xfbml={true}
                        version="v2.5"
