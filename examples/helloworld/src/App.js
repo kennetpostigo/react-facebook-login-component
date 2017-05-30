@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FacebookLogin } from 'react-facebook-login-component';
+import { FacebookLogin } from '../../../dist/react-facebook-login-component';
 
 class App extends Component {
   render() {
@@ -11,8 +11,9 @@ class App extends Component {
                        fields="id,name,email"
                        responseHandler={this.responseFacebook}
                        xfbml={true}
+                       disabled={false}
                        version="v2.5"
-                       class="facebook-login"
+                       className="facebook-login"
                        buttonText="Login With Facebook"/>
       </div>
     );

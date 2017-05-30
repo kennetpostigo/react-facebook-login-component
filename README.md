@@ -43,7 +43,7 @@ class Login extends React.Component{
                        xfbml={true}
                        fields="id,email,name"
                        version="v2.5"
-                       class="facebook-login"
+                       className="facebook-login"
                        buttonText="Login With Facebook"/>
       </div>
     );
