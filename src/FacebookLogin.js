@@ -12,7 +12,8 @@ export default class FacebookLogin extends React.Component {
       let js = element;
       if (d.getElementById(id)) {return;}
       js = d.createElement(s); js.id = id;
-      js.src = '//connect.facebook.net/en_US/sdk.js';
+      const protocol = !window.location.protocol.match(/^https?:/)? 'https:': '';
+      js.src = protocol + '//connect.facebook.net/en_US/sdk.js';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
