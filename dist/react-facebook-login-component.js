@@ -156,7 +156,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'clickHandler',
 	    value: function clickHandler() {
-	      FB.login(this.checkLoginState.bind(this), { scope: this.props.scope });
+	      var _this4 = this;
+
+	      FB.getLoginStatus(function (response) {
+	        if (response.status !== 'connected') {
+	          FB.login(_this4.checkLoginState.bind(_this4), { scope: _this4.props.scope });
+	        } else {
+	          _this4.checkLoginState(response);
+	        }
+	      });
 	    }
 	  }, {
 	    key: 'render',

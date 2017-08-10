@@ -44,7 +44,13 @@ export default class FacebookLogin extends React.Component {
   };
 
   clickHandler () {
-    FB.login(this.checkLoginState.bind(this), { scope: this.props.scope });
+    FB.getLoginStatus((response) => {
+      if (response.status !== 'connected') {
+        FB.login(this.checkLoginState.bind(this), { scope: this.props.scope });
+      } else {
+        this.checkLoginState(response);
+      }
+    });
   };
 
   render() {
