@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class FacebookLogin extends React.Component {
+export default class FacebookLogin extends Component {
   constructor(props) {
     super(props);
+
+    this.checkLoginState = this.checkLoginState.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   componentDidMount() {
@@ -44,13 +47,7 @@ export default class FacebookLogin extends React.Component {
   };
 
   clickHandler () {
-    FB.getLoginStatus((response) => {
-      if (response.status !== 'connected') {
-        FB.login(this.checkLoginState.bind(this), { scope: this.props.scope });
-      } else {
-        this.checkLoginState(response);
-      }
-    });
+    FB.login(this.checkLoginState, { scope: this.props.scope });
   };
 
   render() {
@@ -60,7 +57,7 @@ export default class FacebookLogin extends React.Component {
     } = this.props;
 
     return (
-      <button {...props} onClick={this.clickHandler.bind(this)}>
+      <button {...props} onClick={this.clickHandler}>
         {children}
         {buttonText}
       </button>
