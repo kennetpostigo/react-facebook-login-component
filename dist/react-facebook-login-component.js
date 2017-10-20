@@ -97,13 +97,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var FacebookLogin = function (_React$Component) {
-	  _inherits(FacebookLogin, _React$Component);
+	var FacebookLogin = function (_Component) {
+	  _inherits(FacebookLogin, _Component);
 
 	  function FacebookLogin(props) {
 	    _classCallCheck(this, FacebookLogin);
 
-	    return _possibleConstructorReturn(this, (FacebookLogin.__proto__ || Object.getPrototypeOf(FacebookLogin)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (FacebookLogin.__proto__ || Object.getPrototypeOf(FacebookLogin)).call(this, props));
+
+	    _this.checkLoginState = _this.checkLoginState.bind(_this);
+	    _this.clickHandler = _this.clickHandler.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(FacebookLogin, [{
@@ -156,15 +160,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'clickHandler',
 	    value: function clickHandler() {
-	      var _this4 = this;
-
-	      FB.getLoginStatus(function (response) {
-	        if (response.status !== 'connected') {
-	          FB.login(_this4.checkLoginState.bind(_this4), { scope: _this4.props.scope });
-	        } else {
-	          _this4.checkLoginState(response);
-	        }
-	      });
+	      FB.login(this.checkLoginState, { scope: this.props.scope });
 	    }
 	  }, {
 	    key: 'render',
@@ -183,7 +179,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      return _react2.default.createElement(
 	        'button',
-	        _extends({}, props, { onClick: this.clickHandler.bind(this) }),
+	        _extends({}, props, { onClick: this.clickHandler }),
 	        children,
 	        buttonText
 	      );
@@ -191,7 +187,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }]);
 
 	  return FacebookLogin;
-	}(_react2.default.Component);
+	}(_react.Component);
 
 	exports.default = FacebookLogin;
 
